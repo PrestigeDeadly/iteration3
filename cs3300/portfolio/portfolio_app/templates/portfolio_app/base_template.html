@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Debrary</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid ">
+    <img src="{% static 'images/debrary.jpg' %}" class="img-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    <li class="nav-item p-2 bg-light border">
+    <a class="nav-link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="nav-item p-2 bg-light border">
+    <a class="nav-link" href="{% url 'videos' %}">Videos</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item p-2 bg-light border">
+    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+    </li>
+    {% else %}
+    <li class="nav-item p-2 bg-light border">
+    <a class="nav-link" href="{% url 'login' %}">Log In</a>
+    </li>
+    <li class="nav-item p-2 bg-light border">
+    <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+    </li>
+    {% endif %}
+    </ul>
+    </div>
+    </div>
+    </nav>
+    
+
+
+<!-- add block content from html template -->
+{% block content %}
+
+
+{% endblock %}
+</body>
+</html>

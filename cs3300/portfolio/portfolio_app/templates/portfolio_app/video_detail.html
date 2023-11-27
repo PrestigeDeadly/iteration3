@@ -1,0 +1,15 @@
+{% extends 'portfolio_app/base_template.html' %}
+
+
+{% block content %}
+<div class="p-4 border border-success bg-light text-dark fw-bolder">
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">{{ video.url }}</a>
+<P> </P>
+<p><strong>Platform:</strong> {{ video.platform }}</p>
+<p><strong>Description:</strong> {{ video.description }}</p>
+
+{% if video.img %}
+<img src ="{{ video.img.url }}">
+{% endif %}
+</div>
+{% endblock %}

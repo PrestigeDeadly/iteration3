@@ -1,0 +1,18 @@
+<!-- inherit from base.html -->
+{% extends 'portfolio_app/base_template.html' %}
+
+
+<!-- Replace block content in base_template.html -->
+{% block content %}
+<div class="p-2 bg-warning border text-light">
+<h1>The Debrary Collection for Videos</h1>
+</div>
+<div class="p-2 border border-dark text-dark">
+<h2> Overview </h2>
+</div>
+<div class=" p-2 bg-warning border text-light">
+<p> The Intention of this application is to create a video library for videos from many different platforms,
+    by allowing users to enter links and their platforms and adding them to a list. Videos can be deleted or updated if needed, and
+    creating new videos is very easy. 
+</p>
+{% endblock %}
