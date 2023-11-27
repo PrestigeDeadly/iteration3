@@ -3,6 +3,8 @@ from django.test import SimpleTestCase
 from django.contrib.auth.models import User
 from .models import Video
 from django.urls import reverse
+from django.test import LiveServerTestCase
+from selenium import webdriver
 
 class PostModelTest(TestCase):
     def setUp(self):
@@ -23,3 +25,9 @@ class VideoListTest(TestCase):
     def test_url_available_by_name(self):  
         response = self.client.get(reverse("videos"))
         self.assertEqual(response.status_code, 200)
+
+class LoginTest(LiveServerTestCase)
+    def test_login(self):
+        driver = webdriver.
+
+class Test2
