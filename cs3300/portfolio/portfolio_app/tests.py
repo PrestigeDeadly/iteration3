@@ -5,6 +5,9 @@ from .models import Video
 from django.urls import reverse
 from django.test import LiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import time
 
 class PostModelTest(TestCase):
     def setUp(self):
@@ -26,8 +29,35 @@ class VideoListTest(TestCase):
         response = self.client.get(reverse("videos"))
         self.assertEqual(response.status_code, 200)
 
-class LoginTest(LiveServerTestCase)
-    def test_login(self):
-        driver = webdriver.
+class HomeTest(LiveServerTestCase):
+    def test_chromehome(self):
+        driver = webdriver.Chrome()
 
-class Test2
+        driver.get('http://127.0.0.1:8000/')
+
+        time.sleep(5)
+
+        assert "The Debrary" in driver.title
+
+class LoginTest(LiveServerTestCase):
+    def testLogin(self):
+        driver = webdriver.Chrome()
+
+        driver.get("http://127.0.0.1:8000/accounts/login/")
+
+        time.sleep(3)
+
+        user_name = driver.find_element(By.NAME, 'username')
+        user_password = driver.find_element(By.NAME, 'password')
+
+        time.sleep(3)
+
+        submit = driver.find_element(By.NAME, 'button1')
+
+
+        user_name.send_keys('admin')
+        user_password.send_keys('admin')
+
+        submit.send_keys(Keys.RETURN)
+
+        assert 'admin' in driver.page_source

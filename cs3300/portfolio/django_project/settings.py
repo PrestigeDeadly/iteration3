@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'portfolio_app',
+    'django_nose',
 ]
 
 AUTHENTICATION_BACKENDS = [
